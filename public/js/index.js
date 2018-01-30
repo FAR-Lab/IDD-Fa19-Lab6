@@ -1,6 +1,6 @@
 // WebSocket connection setup
 var socket = io();
-
+var questionRecieved=false;
 													// keep count of question, used for IF condition.
 var output = document.getElementById('output');				// store id="output" in output variable
 output.innerHTML = "<h1 id=response> </h1>";													// ouput first question
@@ -9,11 +9,13 @@ function sendMessage() {
     var input = document.getElementById("input").value;
     socket.emit('message',input);
     document.getElementById("input").value="";
+    document.getElementById("input").style.display="none";
 }
 
 //push enter key (using jquery), to run bot function.
 $(document).keypress(function(e) {
-  if (e.which == 13) {
+  if (e.which == 13 && questionRecieved===true) {
+    questionRecieved=false;
     sendMessage();// run bot function when enter key pressed
   }
 });
@@ -28,6 +30,8 @@ socket.on('answer', function(msg) {
 });
 socket.on('question', function(msg) {
   console.log('Incomming Question:', msg);
+  questionRecieved=true;
+  document.getElementById("input").style.display="block";
   changeText(msg);
 });
 

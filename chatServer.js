@@ -31,7 +31,7 @@ io.on('connect', function(socket) {
   socket.on('loaded', function(){// we wait until the client has loaded and contacted us that it is ready to go.
 
   socket.emit('answer',"Hey, Hello I am \"___*-\" a simple chat bot example."); //We start with the introduction;
-  setTimeout(timedQuestion, 5000, socket,"What is your Name?"); // Wait a moment and respond with a question.
+  setTimeout(timedQuestion, 2500, socket,"What is your Name?"); // Wait a moment and respond with a question.
 
 });
   socket.on('message', (data)=>{ // If we get a new message from the client we process it;
@@ -66,25 +66,25 @@ function bot(data,socket,questionNum) {
   question = 'Whats your favorite Color?';			    	// load next question
   }
   else if (questionNum == 3) {
-  answer= ' Nice! This type of ' + input+'?';
+  answer= 'Ok, ' + input+' it is.';
   socket.emit('changeBG',input.toLowerCase());
   waitTime = 2000;
   question = 'Can you still read the font?';			    	// load next question
   }
   else if (questionNum == 4) {
-    if(input.toLowerCase()==='yes'||input===1){
+    if(input.toLowerCase()==='yes'|| input===1){
       answer = 'Perfect!';
       waitTime =2000;
-      question = 'Whats your favorit place?';
+      question = 'Whats your favorite place?';
     }
-    else if(input.toLowerCase()==='no'||input===0){
+    else if(input.toLowerCase()==='no'|| input===0){
         socket.emit('changeFont','white'); /// we really should look up the inverse of what we said befor.
         answer='How about now?'
         question='';
         waitTime =0;
         questionNum--; // Here we go back in the question number this can end up in a loop
     }else{
-      answer=' I did not understand you. Can you please answer simply with yes or no.'
+      answer=' I did not understand you. Can you please answer with simply with yes or no.'
       question='';
       questionNum--;
       waitTime =0;
