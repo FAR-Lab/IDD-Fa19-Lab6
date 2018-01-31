@@ -8,7 +8,7 @@ var express = require('express'); // web server application
 var app = express(); // webapp
 var http = require('http').Server(app); // connects http library to server
 var io = require('socket.io')(http); // connect websocket library to server
-var serverPort = 8001;
+var serverPort = 8000;
 
 
 //---------------------- WEBAPP SERVER SETUP ---------------------------------//
