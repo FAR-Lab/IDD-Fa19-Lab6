@@ -50,4 +50,5 @@ socket.on('changeFont', function(msg) {
 });
 socket.on('connect',function(){// We let the server know that we are up and running also from the client side;
   socket.emit('loaded');
+  document.getElementById("input").style.display="none"; // Here we wait for the first question to appear
 });

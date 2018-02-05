@@ -79,8 +79,8 @@ function bot(data,socket,questionNum) {
     }
     else if(input.toLowerCase()==='no'|| input===0){
         socket.emit('changeFont','white'); /// we really should look up the inverse of what we said befor.
-        answer='How about now?'
-        question='';
+        answer=''
+        question='How about now?';
         waitTime =0;
         questionNum--; // Here we go back in the question number this can end up in a loop
     }else{
