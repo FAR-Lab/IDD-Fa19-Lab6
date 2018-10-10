@@ -76,7 +76,7 @@ function bot(data, socket, questionNum) {
       socket.emit('changeFont', 'white'); /// we really should look up the inverse of what we said befor.
       answer = ''
       question = 'How about now?';
-      waitTime = 5000;
+      waitTime = 0;
       questionNum--; // Here we go back in the question number this can end up in a loop
     } else {
       question = 'Can you still read the font?'; // load next question
