@@ -79,6 +79,7 @@ function bot(data, socket, questionNum) {
       waitTime = 5000;
       questionNum--; // Here we go back in the question number this can end up in a loop
     } else {
+      question = 'Can you still read the font?'; // load next question
       answer = 'I did not understand you. Could you please answer "yes" or "no"?'
       questionNum--;
       waitTime = 5000;
